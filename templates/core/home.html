@@ -1,0 +1,170 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Home | Rise Kakuma{% endblock %}
+
+{% block content %}
+
+    <div class="position-relative" style="margin-top: -80px;">
+        <img src="{% static 'images/Rise.jpg' %}"
+            alt="Hero Background"
+            class="img-fluid w-100"
+            style="height: 95vh; object-fit: cover;">
+
+        <div class="position-absolute top-0 start-0 w-100 h-100"
+            style="background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65));">
+        </div>
+
+        <div class="position-absolute top-50 start-50 translate-middle text-center text-white px-4 py-5" data-aos="zoom-in" data-aos-duration="1000">
+            <h1 class="display-3 fw-bolder mb-3 animate__animated animate__fadeInDown">
+                RISE KAKUMA
+            </h1>
+            <p class="lead mb-4 animate__animated animate__fadeInUp">
+                Empowering Refugees Through Digital Skills, Innovation, and Opportunity.
+            </p>
+
+            <a href="{% url 'course_list' %}" class="btn btn-primary btn-lg px-4 me-2 animate__animated animate__fadeInUp shadow-lg">
+                Get Started <i class="bi bi-arrow-right"></i>
+            </a>
+            <a href="{% url 'about' %}" class="btn btn-outline-light btn-lg px-4 animate__animated animate__fadeInUp">
+                Learn More
+            </a>
+        </div>
+    </div>
+
+
+    <section class="py-5">
+        <h2 class="mt-3 mb-5 text-center fw-bold" data-aos="fade-down">Popular Courses</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4" data-aos="fade-up">
+                <div class="card shadow-sm h-100 p-3 border-0">
+                    <div class="card-body">
+                        <h5 class="fw-bold">Web Development</h5>
+                        <p class="text-muted">Learn HTML, CSS, JavaScript, and Django.</p>
+                        <a href="{% url 'course_list' %}" class="btn btn-sm btn-outline-primary">View Course</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="150">
+                <div class="card shadow-sm h-100 p-3 border-0">
+                    <div class="card-body">
+                        <h5 class="fw-bold">Python Programming</h5>
+                        <p class="text-muted">Start coding from zero with Python basics.</p>
+                        <a href="{% url 'course_list' %}" class="btn btn-sm btn-outline-primary">View Course</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="card shadow-sm h-100 p-3 border-0">
+                    <div class="card-body">
+                        <h5 class="fw-bold">Cybersecurity Basics</h5>
+                        <p class="text-muted">Learn how to protect systems and data.</p>
+                        <a href="{% url 'course_list' %}" class="btn btn-sm btn-outline-primary">View Course</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    <section class="py-5">
+        <h2 class="text-center fw-bold mb-5" data-aos="fade-down">Our Core Focus</h2>
+        <div class="row text-center g-4">
+
+            <div class="col-md-4" data-aos="fade-right">
+                <div class="p-4 shadow-sm rounded-4 h-100">
+                    <i class="bi bi-laptop fs-1 mb-3" style="color: var(--primary-blue);"></i>
+                    <h5 class="fw-bold">Digital Skills Training</h5>
+                    <p class="text-muted">Learn practical skills like web development and computer literacy.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4" data-aos="fade-up">
+                <div class="p-4 shadow-sm rounded-4 h-100">
+                    <i class="bi bi-people fs-1 mb-3" style="color: var(--primary-blue);"></i>
+                    <h5 class="fw-bold">Community Innovation</h5>
+                    <p class="text-muted">Work on real-life projects that benefit Kakuma and beyond.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4" data-aos="fade-left">
+                <div class="p-4 shadow-sm rounded-4 h-100">
+                    <i class="bi bi-graph-up-arrow fs-1 mb-3" style="color: var(--primary-blue);"></i>
+                    <h5 class="fw-bold">Career Development</h5>
+                    <p class="text-muted">Access mentorship, job preparation, and growth opportunities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    <section class="py-5 text-center" data-aos="fade-up">
+        <h2 class="fw-bold mb-3" style="color: var(--primary-blue);">About Rise Kakuma</h2>
+        <p class="lead text-muted mx-auto" style="max-width: 800px;">
+            Rise Kakuma is dedicated to building digital capacity among youth in Kakuma through 
+            technology training, innovation programs, and community-driven digital solutions. We bridge the gap between talent and opportunity.
+        </p>
+        <a href="{% url 'about' %}" class="btn btn-outline-primary mt-3 px-4">Read Our Full Story</a>
+    </section>
+
+    <hr>
+    
+    <section class="py-5 text-center bg-light rounded-3 mb-5" data-aos="zoom-in">
+        <h2 class="fw-bold mb-3" style="color: var(--primary-blue);">Join the Movement</h2>
+        <p class="lead text-muted mb-4">Be part of the digital transformation in Kakuma.</p>
+        <a href="{% url 'contact' %}" class="btn btn-primary btn-lg px-5 shadow">Get Involved</a>
+    </section>
+
+
+    <section class="py-5">
+        <h2 class="mt-3 text-center fw-bold mb-5" data-aos="fade-down">What People Say</h2>
+
+        <div class="row mt-4">
+
+            <div class="col-md-4 mb-4" data-aos="fade-right">
+                <div class="card shadow-sm p-4 h-100 border-0 rounded-4">
+                    <i class="bi bi-quote fs-2 text-muted mb-2"></i>
+                    <p>"Rise Kakuma changed how I learn digital skills. I can now apply for online jobs confidently."</p>
+                    <div class="d-flex align-items-center mt-3">
+                         <img src="{% static 'images/Mary.webp' %}" class="rounded-circle me-3 border border-primary" width="50" alt="Mary">
+                        <div>
+                            <strong class="text-primary">Mary – Zone 3</strong><br>
+                            <small class="text-muted">Student</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4" data-aos="fade-up">
+                <div class="card shadow-sm p-4 h-100 border-0 rounded-4">
+                    <i class="bi bi-quote fs-2 text-muted mb-2"></i>
+                    <p>"I attended workshops and learned coding basics. The trainers are amazing."</p>
+                    <div class="d-flex align-items-center mt-3">
+                        <img src="{% static 'images/Peter.jpg' %}" class="rounded-circle me-3 border border-primary" width="50" alt="Peter">
+                        <div>
+                            <strong class="text-primary">Peter – Kakuma 1</strong><br>
+                            <small class="text-muted">Trainee</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4" data-aos="fade-left">
+                <div class="card shadow-sm p-4 h-100 border-0 rounded-4">
+                    <i class="bi bi-quote fs-2 text-muted mb-2"></i>
+                    <p>"Thanks to Rise Kakuma, I built my first website. I never imagined I could do it."</p>
+                    <div class="d-flex align-items-center mt-3">
+                        <img src="{% static 'images/Sarah.jpg' %}" class="rounded-circle me-3 border border-primary" width="50" alt="Sarah">
+                        <div>
+                            <strong class="text-primary">Sarah – Kalobeyei</strong><br>
+                            <small class="text-muted">Web Dev Student</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock content %}

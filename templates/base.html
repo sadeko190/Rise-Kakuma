@@ -1,0 +1,338 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Rise Kakuma{% endblock %}</title>
+    
+    <link rel="stylesheet" href="{% static 'style/bootstrap/css/bootstrap.css' %}">
+    
+    <link rel="stylesheet" href="{% static 'style/main.css' %}">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+    :root {
+        --primary-blue: #4c85d7;
+        --accent-light-blue: #76a8e6;
+        --dark-bg: #1a1a1a;
+        --dark-card: #2c2c2c;
+        --text-dark: #212529;
+        --text-light: #f8f9fa;
+    }
+
+    body {
+        color: var(--text-dark);
+        background-color: #ffffff;
+        font-family: 'Segoe UI', sans-serif;
+        letter-spacing: 0.3px;
+        transition: 0.3s ease-in-out;
+    }
+
+    body.dark {
+        background-color: var(--dark-bg);
+        color: var(--text-light);
+    }
+
+    /* ---------------------------------------------------
+        NAVBAR
+    --------------------------------------------------- */
+    .navbar {
+        background: white;
+        padding: 12px 0;
+        transition: 0.3s ease;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .navbar.scrolled {
+        background-color: var(--accent-light-blue) !important;
+        padding: 5px 0;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.12);
+    }
+
+    .navbar .nav-link {
+        font-size: 15px;
+        font-weight: 500;
+        padding: 8px 14px !important;
+        border-radius: 6px;
+        transition: 0.2s ease;
+    }
+
+    .navbar .nav-link:hover {
+        background-color: var(--primary-blue);
+        color: white !important;
+    }
+
+    body.dark .navbar {
+        background-color: #212121 !important;
+    }
+    body.dark .navbar.scrolled {
+        background-color: var(--primary-blue) !important;
+    }
+
+    /* ---------------------------------------------------
+        BUTTONS
+    --------------------------------------------------- */
+    .btn-primary {
+        background-color: var(--primary-blue) !important;
+        border-color: var(--primary-blue) !important;
+        font-weight: 600;
+    }
+
+    .btn-primary:hover {
+        background-color: #3b6cb0 !important;
+    }
+
+    /* ---------------------------------------------------
+        CARDS & SECTIONS
+    --------------------------------------------------- */
+    .dark .card,
+    .dark .bg-light {
+        background: var(--dark-card) !important;
+        color: var(--text-light) !important;
+        border-color: #444 !important;
+    }
+
+    /* ---------------------------------------------------
+        COUNTERS
+    --------------------------------------------------- */
+    .counter-section {
+        background: var(--primary-blue);
+        color: white;
+    }
+
+    /* ---------------------------------------------------
+        FOOTER
+    --------------------------------------------------- */
+    footer {
+        background: #343a40;
+        color: white;
+    }
+
+    body.dark footer {
+        background: var(--dark-bg);
+    }
+
+    footer a {
+        transition: 0.2s;
+    }
+
+    footer a:hover {
+        color: var(--accent-light-blue) !important;
+    }
+
+    /* ---------------------------------------------------
+        WHATSAPP FLOAT BUTTON
+    --------------------------------------------------- */
+    .whatsapp-btn:hover {
+        transform: scale(1.1);
+        transition: 0.2s;
+    }
+</style>
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="{% url 'home' %}">
+                <img src="{% static 'images/Kakuma rise.png' %}" 
+                    alt="Rise Kakuma" 
+                    style="height: 40px; margin-right: 8px;">
+                <strong class="text-dark">Rise Kakuma</strong>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'job_list' %}">Jobs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'course_list' %}">Learning Hub</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'booking_list' %}">Booking</a></li>
+                    {% comment %} <li class="nav-item"><a class="nav-link" href="{% url 'challenge_list' %}">Challenges</a></li> {% endcomment %}
+                    {% comment %} <li class="nav-item"><a class="nav-link" href="{% url 'workshop_list' %}">Workshops</a></li> {% endcomment %}
+                    <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
+
+                    
+                    {% if user.is_authenticated %}
+    <li class="nav-item"><a class="nav-link" href="{% url 'profile' %}">Profile</a></li>
+    <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
+{% else %}
+    <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
+{% endif %}
+
+
+
+<li class="nav-item ms-md-3">
+    <a class="btn btn-primary btn-sm" href="{% url 'donate' %}">Donate</a>
+</li>
+
+<li class="nav-item ms-3">
+    <button id="darkModeBtn" class="btn btn-outline-dark btn-sm">
+        <i class="bi bi-moon"></i>
+    </button>
+</li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" style="padding-top: 80px;">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <section class="counter-section py-5 mt-5" data-aos="fade-up">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <h1 class="counter display-4 fw-bold" data-target="500">0</h1>
+                    <p class="lead">Students Trained</p>
+                </div>
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <h1 class="counter display-4 fw-bold" data-target="120">0</h1>
+                    <p class="lead">Projects Completed</p>
+                </div>
+                <div class="col-md-4">
+                    <h1 class="counter display-4 fw-bold" data-target="50">0</h1>
+                    <p class="lead">Workshops Conducted</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <a href="https://wa.me/+254759947671" 
+        class="position-fixed"
+        style="bottom: 25px; right: 25px; z-index: 9999;">
+        <button class="btn btn-success btn-lg rounded-circle shadow">
+            <i class="bi bi-whatsapp fs-3"></i>
+        </button>
+    </a>
+
+    <footer class="bg-dark text-white pt-5 pb-3 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5>Rise Kakuma</h5>
+                    <p>Empowering youth in Kakuma with skills in tech, jobs, and digital inclusion.</p>
+                </div>
+
+                <div class="col-md-2 mb-3">
+                    <h5>Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="/" class="text-white-50 text-decoration-none">Home</a></li>
+                        <li><a href="{% url 'course_list' %}" class="text-white-50 text-decoration-none">Learning Hub</a></li>
+                        <li><a href="{% url 'job_list' %}" class="text-white-50 text-decoration-none">Jobs</a></li>
+                       
+                    </ul>
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <h5>Contact</h5>
+                    <p class="text-white-50">
+                        Kakuma Refugee Camp<br>
+                        Turkana County, Kenya<br>
+                        Email: info@risekakuma.org
+                    </p>
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <h5>Follow Us</h5>
+                    <div>
+                        <a href="#" class="text-white me-3 fs-4"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-white me-3 fs-4"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="text-white fs-4"><i class="bi bi-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-light">
+            <p class="text-center mb-0 text-white-50">&copy; 2025 Rise Kakuma — All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="{% static 'style/bootstrap/js/bootstrap.bundle.js' %}"></script>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800, /* Slightly longer duration for smoother fade */
+            once: true,
+        });
+    </script>
+
+    <script>
+        window.addEventListener("scroll", function () {
+            let navbar = document.querySelector(".navbar");
+            // Add a slightly higher scroll threshold (e.g., 80) if the padding-top doesn't look right
+            navbar.classList.toggle("scrolled", window.scrollY > 50); 
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const counters = document.querySelectorAll(".counter");
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const counter = entry.target;
+                        let target = +counter.getAttribute("data-target");
+                        let count = 0;
+                        
+                        const update = () => {
+                            if (count < target) {
+                                // Increase step size for faster animation on larger numbers
+                                count += Math.ceil(target / 80); 
+                                counter.textContent = Math.min(count, target); // Ensure it doesn't overshoot
+                                setTimeout(update, 30);
+                            } else {
+                                counter.textContent = target;
+                                observer.unobserve(counter); // Stop observing once done
+                            }
+                        };
+                        update();
+                    }
+                });
+            }, {
+                threshold: 0.8 // Start animation when 80% of element is visible
+            });
+
+            counters.forEach(counter => observer.observe(counter));
+        });
+    </script>
+    
+    <script>
+        const darkModeBtn = document.getElementById('darkModeBtn');
+        const body = document.body;
+
+        // Load preference from local storage or default to light
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        if (currentTheme === 'dark') {
+            body.classList.add('dark');
+            darkModeBtn.innerHTML = '<i class="bi bi-sun"></i>'; // Sun icon for light mode toggle
+        }
+
+        darkModeBtn.addEventListener('click', () => {
+            body.classList.toggle('dark');
+            let theme = 'light';
+            let iconHtml = '<i class="bi bi-moon"></i>'; // Moon icon for dark mode toggle
+
+            if (body.classList.contains('dark')) {
+                theme = 'dark';
+                iconHtml = '<i class="bi bi-sun"></i>';
+            }
+            
+            darkModeBtn.innerHTML = iconHtml;
+            localStorage.setItem('theme', theme);
+        });
+    </script>
+
+</body>
+</html>

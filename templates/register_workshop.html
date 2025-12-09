@@ -1,0 +1,13 @@
+{% comment %} {% extends "base.html" %}
+{% block content %}
+<h2>Register for Workshop {{ workshop_id }}</h2>
+<p>Registration form goes here.</p>
+<form method="post">
+    {% csrf_token %}
+    <label>Name:</label>
+    <input type="text" name="name">
+    <label>Email:</label>
+    <input type="email" name="email">
+    <button type="submit">Register</button>
+</form>
+{% endblock %} {% endcomment %}

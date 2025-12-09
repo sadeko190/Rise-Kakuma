@@ -1,0 +1,38 @@
+Content-Type: multipart/alternative;
+ boundary="===============6181653881600266647=="
+MIME-Version: 1.0
+Subject: We received your message
+From: webmaster@localhost
+To: dengkongor190@gmail.com
+Date: Wed, 03 Dec 2025 09:39:30 -0000
+Message-ID: <176475477032.16192.1097851041221275376@DESKTOP-EH5BI4N>
+
+--===============6181653881600266647==
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+
+Thank you for your message.
+--===============6181653881600266647==
+Content-Type: text/html; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+<body style="font-family: Arial; padding: 20px;">
+    <h2 style="color: #27ae60;">Thank You, Deng Kongor!</h2>
+
+    <p>
+        We received your message and we will reply soon.
+        Thank you for writing to us.
+    </p>
+
+    <br>
+    <p style="color: #888;">Rise Kakuma Team</p>
+</body>
+</html>
+
+--===============6181653881600266647==--
+
+-------------------------------------------------------------------------------

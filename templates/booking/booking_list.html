@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Booking | Rise Kakuma{% endblock %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<div class="hero position-relative text-white">
+    <img src="{% static 'images/booking-bg.jpg' %}" alt="Booking Background" class="img-fluid w-100" style="max-height:400px; object-fit:cover;">
+    <div class="hero-text position-absolute top-50 start-50 translate-middle text-center">
+        <h1 class="display-4 fw-bold">Book Your Slot</h1>
+        <p class="lead">Reserve a computer or join a workshop</p>
+    </div>
+</div>
+
+<!-- Booking Slots -->
+<div class="container my-5">
+    <div class="row g-4">
+        {% for slot in slots %}
+        <div class="col-md-6">
+            <div class="card shadow p-4 h-100 rounded-4" data-aos="fade-up">
+                <h4 class="card-title text-center fw-bold">{{ slot.title }}</h4>
+                <p class="card-text text-center">{{ slot.description }}</p>
+                <div class="d-grid mt-3">
+                    <!-- ✅ Correct dynamic URL -->
+                    <a href="{% url 'book_slot' slot.id %}" 
+                       class="btn {% if slot.slot_type == 'computer' %}btn-primary{% else %}btn-success{% endif %} btn-lg rounded-pill">
+                       {{ slot.button_text }}
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p class="text-center">No booking slots available at the moment.</p>
+        {% endfor %}
+    </div>
+</div>
+
+
+</div>
+
+{% endblock %}

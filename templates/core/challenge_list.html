@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Coding Challenges{% endblock %}
+
+{% block content %}
+<div class="container fade-in my-5">
+    <h1 class="mb-4 text-center">Coding Challenges</h1>
+    <div class="row g-4">
+        <!-- Example Challenge Cards -->
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Challenge 1: Algorithm Practice</h5>
+                    <p class="card-text">Solve algorithm exercises to improve your skills.</p>
+                    <a href="{% url 'challenge_detail' challenge_id=1 %}" class="btn btn-primary">View Challenge</a>
+                </div>
+            </div>
+        </div>
+        <!-- Add more challenges -->
+    </div>
+</div>
+{% endblock %}

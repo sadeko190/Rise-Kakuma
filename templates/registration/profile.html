@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+<h2 class="mb-4">My Profile</h2>
+
+<h4>Learning Hub</h4>
+{% for course in courses %}
+    <div class="card mb-2">
+        <div class="card-body">
+            <h5>{{ course.title }}</h5>
+            <p>{{ course.description|default:"No description" }}</p>
+            <ul>
+                {% for lesson in lessons %}
+                    {% if lesson.course.id == course.id %}
+                        <li><a href="{% url 'lesson_detail' lesson.id %}">{{ lesson.title }}</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% empty %}
+    <p>No courses available.</p>
+{% endfor %}
+
+<h4 class="mt-5">Jobs I Applied To</h4>
+{% if job_applications %}
+    <ul>
+        {% for application in job_applications %}
+            <li>
+                {{ application.job.title }} - Applied on {{ application.applied_at|date:"M d, Y" }}
+                {% if application.resume %}
+                    - <a href="{{ application.resume.url }}" target="_blank">View Resume</a>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>You haven't applied to any jobs yet.</p>
+{% endif %}
+{% endblock %}

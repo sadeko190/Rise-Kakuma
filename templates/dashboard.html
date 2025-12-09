@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard - Rise Kakuma{% endblock %}
+
+{% block content %}
+<h2 class="mb-4">Dashboard</h2>
+<div class="row g-4">
+    <!-- Jobs -->
+    <div class="col-md-3">
+        <div class="card shadow-sm text-center p-3">
+            <div class="card-body">
+                <i class="bi bi-briefcase-fill fs-1 text-primary mb-2"></i>
+                <h5 class="card-title">Jobs</h5>
+                <p class="card-text">{{ total_jobs }} Jobs Available</p>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'job_list' %}" class="btn btn-primary btn-sm">View Jobs</a>
+                {% else %}
+                    <a href="{% url 'signup' %}" class="btn btn-primary btn-sm">Signup to View</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Learning Hub -->
+    <div class="col-md-3">
+        <div class="card shadow-sm text-center p-3">
+            <div class="card-body">
+                <i class="bi bi-journal-bookmark-fill fs-1 text-success mb-2"></i>
+                <h5 class="card-title">Learning Hub</h5>
+                <p class="card-text">{{ total_courses }} Courses | {{ total_lessons }} Lessons</p>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'course_list' %}" class="btn btn-success btn-sm">Explore Courses</a>
+                {% else %}
+                    <a href="{% url 'signup' %}" class="btn btn-success btn-sm">Signup to Explore</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Booking -->
+    <div class="col-md-3">
+        <div class="card shadow-sm text-center p-3">
+            <div class="card-body">
+                <i class="bi bi-calendar-check-fill fs-1 text-warning mb-2"></i>
+                <h5 class="card-title">Bookings</h5>
+                <p class="card-text">Reserve Your Slot</p>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'booking_list' %}" class="btn btn-warning btn-sm">Book Now</a>
+                {% else %}
+                    <a href="{% url 'signup' %}" class="btn btn-warning btn-sm">Signup to Book</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Challenges -->
+    <div class="col-md-3">
+        <div class="card shadow-sm text-center p-3">
+            <div class="card-body">
+                <i class="bi bi-trophy-fill fs-1 text-danger mb-2"></i>
+                <h5 class="card-title">Challenges</h5>
+                <p class="card-text">Participate & Win</p>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'challenge_list' %}" class="btn btn-danger btn-sm">View Challenges</a>
+                {% else %}
+                    <a href="{% url 'signup' %}" class="btn btn-danger btn-sm">Signup to Participate</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

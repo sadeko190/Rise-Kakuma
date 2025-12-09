@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Booking Successful | Rise Kakuma{% endblock %}
+
+{% block content %}
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow p-5 text-center rounded-4" data-aos="fade-up">
+                <i class="bi bi-check-circle-fill text-success display-1 mb-4"></i>
+                <h1 class="fw-bold mb-3" style="color: var(--primary-blue);">Booking Confirmed!</h1>
+                <p class="lead mb-4">Thank you for booking a slot at Rise Kakuma. We have received your request and will contact you if needed.</p>
+                
+                <a href="{% url 'booking_list' %}" class="btn btn-primary btn-lg rounded-pill me-2">Book Another Slot</a>
+                <a href="{% url 'home' %}" class="btn btn-outline-primary btn-lg rounded-pill">Back to Home</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

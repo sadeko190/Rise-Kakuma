@@ -1,0 +1,42 @@
+{% comment %} {% extends "base.html" %}
+
+{% block title %}Workshops | Rise Kakuma{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <h1 class="mb-4 text-center">Workshops</h1>
+
+    <div class="row">
+        <!-- Example workshop card -->
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Workshop 1: Digital Skills</h5>
+                    <p class="card-text">Learn basic computer and internet skills to empower your career.</p>
+                    <a href="{% url 'workshop_detail' workshop_id=1 %}" class="btn btn-primary">View Workshop</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Workshop 2: Entrepreneurship</h5>
+                    <p class="card-text">Develop business ideas and learn how to run small projects in Kakuma.</p>
+                    <a href="{% url 'workshop_detail' workshop_id=2 %}" class="btn btn-primary">View Workshop</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Workshop 3: Coding Bootcamp</h5>
+                    <p class="card-text">Hands-on programming sessions to strengthen your tech skills.</p>
+                    <a href="{% url 'workshop_detail' workshop_id=3 %}" class="btn btn-primary">View Workshop</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} {% endcomment %}

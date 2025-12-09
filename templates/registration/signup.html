@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}Sign Up | Rise Kakuma{% endblock %}
+
+{% block content %}
+<div class="container mt-5 d-flex justify-content-center">
+    <div class="card shadow-sm p-4" style="width: 100%; max-width: 450px; border-radius: 10px;">
+        <h2 class="mb-4 text-center fw-bold text-primary">Create Your Account</h2>
+
+        <form method="post" novalidate>
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+
+
+            <div class="mb-3">
+    {{ form.phone.label_tag }}
+    {{ form.phone }}
+    {{ form.phone.errors }}
+</div>
+
+<div class="mb-3">
+    {{ form.location.label_tag }}
+    {{ form.location }}
+    {{ form.location.errors }}
+</div>
+
+
+            <div class="mb-3">
+                {{ form.username.label_tag }}
+                {{ form.username }}
+                {{ form.username.errors }}
+            </div>
+
+            <div class="mb-3">
+                {{ form.email.label_tag }}
+                {{ form.email }}
+                {{ form.email.errors }}
+            </div>
+
+            <div class="mb-3">
+                {{ form.password1.label_tag }}
+                {{ form.password1 }}
+                {{ form.password1.errors }}
+            </div>
+
+            <div class="mb-3">
+                {{ form.password2.label_tag }}
+                {{ form.password2 }}
+                {{ form.password2.errors }}
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100 py-2 fw-bold">Sign Up</button>
+        </form>
+
+        <p class="text-center mt-3 small">
+            Already have an account? <a href="{% url 'login' %}" class="text-decoration-none">Login here</a>
+        </p>
+    </div>
+</div>
+{% endblock %}

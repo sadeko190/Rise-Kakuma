@@ -1,0 +1,17 @@
+{% comment %} {% extends "base.html" %}
+
+{% block title %}Workshop Details{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <h1 class="mb-4 text-center">Workshop {{ workshop_id }} Details</h1>
+
+    <div class="card">
+        <div class="card-body">
+            <h3 class="card-title">Workshop {{ workshop_id }}</h3>
+            <p class="card-text">Details and schedule for Workshop {{ workshop_id }} go here.</p>
+            <a href="{% url 'workshop_list' %}" class="btn btn-secondary mt-3">Back to Workshops</a>
+        </div>
+    </div>
+</div>
+{% endblock %} {% endcomment %}

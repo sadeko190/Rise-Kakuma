@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}{{ lesson.title }} | Rise Kakuma{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card shadow-sm p-4">
+        <h2 class="card-title mb-3 text-primary">{{ lesson.title }}</h2>
+        <h5 class="card-subtitle mb-3 text-muted">Course: {{ lesson.course.title }}</h5>
+        
+        {% if lesson.content %}
+        <div class="card-text mb-4">
+            {{ lesson.content|linebreaks }}
+        </div>
+        {% else %}
+        <p class="text-muted">No content available for this lesson yet.</p>
+        {% endif %}
+        
+        <a href="{% url 'course_detail' lesson.course.id %}" class="btn btn-secondary">Back to Course</a>
+    </div>
+</div>
+{% endblock %}

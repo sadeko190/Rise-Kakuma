@@ -1,0 +1,41 @@
+Content-Type: multipart/alternative;
+ boundary="===============7738721791452068881=="
+MIME-Version: 1.0
+Subject: New Message from Deng Kongor
+From: webmaster@localhost
+To: webmaster@localhost
+Date: Wed, 03 Dec 2025 09:29:50 -0000
+Message-ID: <176475419064.1120.2542884107262512585@DESKTOP-EH5BI4N>
+
+--===============7738721791452068881==
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+
+Yes sir
+--===============7738721791452068881==
+Content-Type: text/html; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+<body style="font-family: Arial; padding: 20px;">
+    <h2 style="color: #2c3e50;">New Contact Message</h2>
+
+    <p><strong>Name:</strong> Deng Kongor</p>
+    <p><strong>Email:</strong> dengkongor190@gmail.com</p>
+    <p><strong>Message:</strong></p>
+
+    <div style="background: #f4f4f4; padding: 15px; border-radius: 8px;">
+        Yes sir
+    </div>
+
+    <br>
+    <p style="color: #888;">Rise Kakuma System</p>
+</body>
+</html>
+
+--===============7738721791452068881==--
+
+-------------------------------------------------------------------------------

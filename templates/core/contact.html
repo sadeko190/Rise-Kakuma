@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% load static %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+    <!-- Banner Image -->
+    <div class="mb-4" data-aos="fade-down">
+        <img src="{% static 'images/Rise_Kakuma.png' %}" 
+             alt="Rise Kakuma" 
+             class="img-fluid rounded shadow-sm" 
+             style="width: 100%; height: auto; object-fit: cover;">
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm p-4" data-aos="fade-up">
+                <h2 class="mb-4 text-center" style="color: var(--primary-blue);">
+                    Contact Rise Kakuma
+                </h2>
+
+                <form method="post">
+                    {% csrf_token %}
+                    {% for field in form %}
+                        <div class="mb-3">
+                            {{ field.label_tag }}
+                            {{ field|add_class:"form-control" }}
+                            {% if field.help_text %}
+                                <small class="form-text text-muted">{{ field.help_text }}</small>
+                            {% endif %}
+                            {% for error in field.errors %}
+                                <div class="text-danger">{{ error }}</div>
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+                    <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                </form>
+
+                <div class="mt-4 text-center text-muted">
+                    <p>Email: <a href="mailto:contact@risekakuma.org" style="color: var(--primary-blue);">
+                        contact@risekakuma.org</a></p>
+                    <p>Phone: +254 700 000 000</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+    .card {
+        border-radius: 12px;
+        background-color: #ffffff;
+    }
+    input, textarea, select {
+        border-radius: 6px;
+        border: 1px solid #ced4da;
+        padding: 10px;
+    }
+    input:focus, textarea:focus {
+        border-color: var(--primary-blue);
+        box-shadow: 0 0 5px rgba(76,133,215,0.3);
+    }
+    button.btn-primary {
+        font-weight: 600;
+    }
+</style>
+
+{% endblock %}

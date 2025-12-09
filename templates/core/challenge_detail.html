@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Challenge Details{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <h1 class="mb-4 text-center">Challenge Details</h1>
+
+    <div class="card">
+        <div class="card-body">
+            <h3 class="card-title">Challenge {{ challenge_id }}</h3>
+            <p class="card-text">Detailed instructions for Challenge {{ challenge_id }} go here.</p>
+            <a href="{% url 'challenge_list' %}" class="btn btn-secondary mt-3">Back to Challenges</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Learning Hub | Rise Kakuma{% endblock %}
+
+{% block content %}
+<!-- Hero -->
+<div class="hero-section text-white d-flex align-items-center"
+     style="background: url('{% static "images/learning.jpg" %}') center/cover no-repeat;
+            height: 60vh;">
+    <div class="container text-center">
+        <h1 class="fw-bold">Learning Hub</h1>
+        <p class="lead">Grow your skills with free courses, lessons & exercises.</p>
+    </div>
+</div>
+
+<div class="container my-5">
+    <h2 class="text-center mb-4">Popular Courses</h2>
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card shadow h-100">
+                <img src="{% static 'images/course1.jpg' %}" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">Web Development</h5>
+                    <p>Learn HTML, CSS, JS & build real projects.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card shadow h-100">
+                <img src="{% static 'images/course2.jpg' %}" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">Python Programming</h5>
+                    <p>Start coding and build automation tools.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card shadow h-100">
+                <img src="{% static 'images/course3.jpg' %}" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">Digital Skills</h5>
+                    <p>Computer basics, typing, Microsoft Office.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
