@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard | Rise Kakuma{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+
+    <!-- Welcome Message -->
+    <div class="text-center mb-5">
+        <h2 class="fw-bold text-primary">Welcome, {{ user_name }}!</h2>
+        <p class="text-muted">Here’s your Rise Kakuma dashboard overview.</p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="text-center mb-5">
+        <a href="{% url 'profile' %}" class="btn btn-outline-primary me-2">
+            View Your Profile
+        </a>
+        <a href="{% url 'course_list' %}" class="btn btn-success me-2">View Courses</a>
+        <a href="{% url 'job_list' %}" class="btn btn-primary">View Jobs</a>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="row text-center">
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm p-4 h-100 border-start border-4 border-success">
+                <i class="bi bi-journal-bookmark display-4 text-success mb-2"></i>
+                <h5>Total Courses</h5>
+                <p class="fw-bold display-6">{{ total_courses }}</p>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm p-4 h-100 border-start border-4 border-warning">
+                <i class="bi bi-book display-4 text-warning mb-2"></i>
+                <h5>Total Lessons</h5>
+                <p class="fw-bold display-6">{{ total_lessons }}</p>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm p-4 h-100 border-start border-4 border-primary">
+                <i class="bi bi-briefcase display-4 text-primary mb-2"></i>
+                <h5>Total Jobs</h5>
+                <p class="fw-bold display-6">{{ total_jobs }}</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

@@ -74,20 +74,20 @@ class CustomUserCreationForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ("username", "email", "password1", "password2", "phone", "location")
+        fields = ("username", "email", "phone", "location", "password1", "password2")
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        for field in self.fields.values():
+            field.widget.attrs.update({
+                'class': 'form-control',
+                'placeholder': field.label
+            })
 
     def save(self, commit=True):
         user = super().save(commit)
         user.email = self.cleaned_data['email']
         if commit:
             user.save()
-            # Create profile only if it doesn't exist
-            UserProfile.objects.get_or_create(
-                user=user,
-                defaults={
-                    'phone': self.cleaned_data.get('phone', ''),
-                    'location': self.cleaned_data.get('location', '')
-                }
-            )
         return user
-

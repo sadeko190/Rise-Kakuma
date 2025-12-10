@@ -304,3 +304,15 @@ def profile_view(request):
 def lesson_detail(request, lesson_id):
     lesson = get_object_or_404(Lesson, id=lesson_id)
     return render(request, 'courses/lesson_detail.html', {'lesson': lesson})
+
+@login_required(login_url='login')
+def dashboard(request):
+    context = {
+        'total_courses': Course.objects.count(),
+        'total_lessons': Lesson.objects.count(),
+        'total_jobs': Job.objects.count(),
+        'user_name': request.user.username,
+        'user_email': request.user.email,
+        'user_profile': getattr(request.user, 'profile', None),  # safe way to get profile
+    }
+    return render(request, 'core/dashboard.html', context)
